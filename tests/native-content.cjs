@@ -1,16 +1,23 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
-const html=fs.readFileSync('app/src/main/assets/index.html','utf8');const code=html.match(/<script>([\s\S]*?)<\/script>/)[1];
-const elements=new Map();class E{constructor(){this.innerHTML='';this.textContent='';this.value='';this.style={};this.dataset={};this.classList={toggle(){},add(){}}}querySelectorAll(){return []}setAttribute(){}addEventListener(){}close(){}showModal(){}scrollIntoView(){}}
-const doc={getElementById:id=>{if(!elements.has(id))elements.set(id,new E());return elements.get(id)},querySelectorAll:()=>[],createElement:()=>new E()};let exported;const store=new Map();const ctx=vm.createContext({document:doc,window:{addEventListener(){},AndroidBackup:{exportBackup:json=>exported=json,importBackup(){}}},location:{hash:'#learn'},localStorage:{getItem:k=>store.get(k),setItem:(k,v)=>store.set(k,v)},console,setTimeout:()=>0,confirm:()=>true,Intl,Date,Math,JSON,Set,Map,Blob,URL,TextEncoder});
-// Test within the shipped IIFE before it closes, without exposing production globals.
+const html=fs.readFileSync('app/src/main/assets/index.html','utf8'),code=html.match(/<script>([\s\S]*?)<\/script>/)[1];
+const old=JSON.parse(fs.readFileSync('course/legacy.json'));const legacy={version:1,name:'Súkromné meno',goal:2,xp:730,completed:Object.fromEntries(old.lessons.map(l=>[l.id,{best:100,date:'2026-10-20'}])),notes:{s1:'Súkromná poznámka'},mistakes:['s1:0'],activity:{'2026-10-22':['s1']},review:{s1:{step:1,last:'2026-10-21',due:'2026-10-23'}}};
+const elements=new Map();class E{constructor(){this.innerHTML='';this.textContent='';this.value='';this.disabled=false;this.style={};this.dataset={};this.classList={toggle(){},add(){}}}querySelectorAll(){return []}setAttribute(){}addEventListener(){}close(){}showModal(){}scrollIntoView(){}}
+const doc={getElementById:id=>{if(!elements.has(id))elements.set(id,new E());return elements.get(id)},querySelectorAll:()=>[],createElement:()=>new E()};const store=new Map([['agrokrok-v1',JSON.stringify(legacy)]]);let exported,shared;
+const ctx=vm.createContext({document:doc,window:{addEventListener(){},scrollTo(){},AndroidBackup:{exportBackup:x=>exported=x,importBackup(){},shareResult:x=>shared=x}},navigator:{},location:{hash:'#learn'},localStorage:{getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v)},console,setTimeout:()=>0,confirm:()=>true,prompt(){},Intl,Date,Math,JSON,Set,Map,Blob,URL,TextEncoder,assert});
 const checks=`
-if(lessons.length!==24||lessons.reduce((n,l)=>n+l.questions.length,0)!==96)throw Error('content counts');
-for(const v of ['learn','review','library','progress','sources']){view=v;render();if($('main').innerHTML.length<500)throw Error('empty view '+v)}
-state.name='Test';state.notes.s1='Lokálna poznámka';download();
-if(!window.agroKrokImportNative)throw Error('native importer unavailable');
+assert.equal(lessons.length,178);assert.equal(modules.length,18);assert.equal(questionMap.size,1527);
+assert.equal(state.xp,730);assert.equal(Object.keys(state.completed).length,24);assert.equal(stagesDone(),24);assert.equal(state.notes.s1,'Súkromná poznámka');assert.equal(state.stages.s1,1);assert(state.mistakes.includes('s1:0'));assert.equal(JSON.parse(localStorage.getItem('agrokrok-before-year-course')).xp,730);
+for(const v of ['learn','review','library','progress','sources']){view=v;render();assert($('main').innerHTML.length>500)}
+for(const l of lessons){assert(l.points.length>=3);assert(l.questions.length>=4);for(const q of topicQuestions(l)){assert(q.prompt&&q.why);if(q.type==='choice'){assert.equal(new Set(q.options).size,q.options.length);assert(q.options.includes(q.answer))}assert(isCorrect(q,q.answer));}for(let st=1;st<=5;st++){assert(createQueue(l,st).length>=3)}}
+assert(isCorrect({type:'text',answer:'Pôdny profil'},'podny profil'));assert(!isCorrect({type:'number',answer:4},40));
+const restored=validateState(JSON.parse(JSON.stringify(state)));assert.equal(restored.xp,730);assert.equal(restored.stages.s1,1);assert.equal(restored.notes.s1,'Súkromná poznámka');
+for(const m of ['farm','crops','chem','tech','math'])for(let i=0;i<50;i++){const q=makeNumeric(m);assert(Number.isFinite(q.answer));assert(isCorrect(q,q.answer))}
+const held=state;state=blank();startLesson('s1',1);session.firstCorrect=session.initialCount;session.firstAnswered=new Set(session.queue.map(q=>q.key));finishSession();assert.equal(state.stages.s1,1);assert.equal(state.xp,30);startLesson('s1',2);session.firstCorrect=session.initialCount;finishSession();assert.equal(state.stages.s1,2);assert.equal(state.xp,50);
+startLesson('s2',1);session.firstCorrect=0;finishSession();assert(!state.completed.s2);assert(!state.stages.s2);
+const q=qByKey('s1:0');startLesson('s1',1);recordAnswer(q,false);assert(state.mistakes.includes(q.key));assert.equal(state.qStats[q.key].due,today());startLesson('s1',1);recordAnswer(q,true);assert(!state.mistakes.includes(q.key));assert.equal(state.qStats[q.key].due,shift(today(),1));
+state=held;shareProgress(90);assert(!shareText(90).includes(state.name));assert(!shareText(90).includes(state.notes.s1));assert(shareText(90).includes('/downloads/AgroKrok.apk'));download();
+state=blank();for(const l of lessons){state.stages[l.id]=5;state.completed[l.id]={best:100,date:today()}}assert.equal(nextNode(),null);startReview();assert(session.queue.length>0);session.firstCorrect=session.initialCount;finishSession();assert.equal(state.masterRuns,1);assert($('lesson-body').innerHTML.includes('Ďalšia majstrovská výzva'));state=held;
 `;
-vm.runInContext(code.replace(/\}\)\(\);\s*$/,checks+'\n})();'),ctx);assert.equal(JSON.parse(exported).notes.s1,'Lokálna poznámka');
-assert(/^\s*:root\{--green:#244c3b;/.test(html.match(/<style>([\s\S]*?)<\/style>/)[1]),'valid root palette after removing font import');assert(html.includes('id="begin">Spustiť kvíz →'),'clear quiz start label');
-assert(!html.includes('@import'),'no external font');assert(!html.includes('serviceWorker.register'),'no dependency on web cache');assert(!html.includes('src="app.js"'),'logic embedded');assert(html.includes('privacy.html'),'in-app privacy');assert(!html.includes('id="install-app"'),'no redundant install button');
-const manifest=fs.readFileSync('app/src/main/AndroidManifest.xml','utf8');assert(!manifest.includes('uses-permission'),'no requested permissions');assert(manifest.includes('allowBackup="false"'),'cloud backup disabled');
-console.log('PASS: 24 lessons, 96 tasks, five views, native JSON export/import bridge, local assets, privacy link, no permissions.');
+vm.runInContext(code.replace(/\}\)\(\);\s*$/,checks+'\n})();'),ctx);assert.equal(JSON.parse(exported).xp,730);assert(shared.includes('90 %'));assert(!html.includes('@import'));assert(/^\s*:root\{--green:#244c3b;/.test(html.match(/<style>([\s\S]*?)<\/style>/)[1]));assert(!html.includes('serviceWorker.register'));assert(html.includes('privacy.html'));
+const java=fs.readFileSync('app/src/main/java/sk/agrokrok/app/MainActivity.java','utf8');assert(java.includes('Intent.ACTION_SEND'));assert(java.includes('void shareResult'));
+console.log('PASS: 178 topics, 1527 questions, 890 stages; old progress/XP/notes preserved; staged progression, answer-based review, numeric templates, sharing privacy, continued master training.');

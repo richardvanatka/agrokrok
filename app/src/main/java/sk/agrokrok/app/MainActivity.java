@@ -60,6 +60,8 @@ public class MainActivity extends Activity {
  private void back(){web.evaluateJavascript("(function(){const d=document.querySelector('dialog[open]');if(d){d.dispatchEvent(new Event('cancel'));d.close();return true;}return false;})()",value->{if("true".equals(value))return;if(web.canGoBack())web.goBack();else finish();});}
  @Override public void onBackPressed(){back();}
  public class BackupBridge {
+  @JavascriptInterface public void shareResult(String text){if(text==null||text.length()>6000)return;runOnUiThread(()->{try{Intent send=new Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT,text);startActivity(Intent.createChooser(send,"Zdieľať výsledok a AgroKrok"));}catch(Exception e){notice("Zdieľanie nie je dostupné.");}});}
+
   @JavascriptInterface public void exportBackup(String json){if(json==null||json.length()>2_000_000)return;runOnUiThread(()->{try{if(pendingExport!=null)return;new JSONObject(json);pendingExport=json;Intent intent=new Intent(Intent.ACTION_CREATE_DOCUMENT).setType("application/json").addCategory(Intent.CATEGORY_OPENABLE).putExtra(Intent.EXTRA_TITLE,"agrokrok-pokrok.json");startActivityForResult(intent,EXPORT);}catch(Exception e){pendingExport=null;notice("Zálohu sa nepodarilo pripraviť.");}});}
   @JavascriptInterface public void importBackup(){runOnUiThread(()->{try{startActivityForResult(new Intent(Intent.ACTION_OPEN_DOCUMENT).setType("*/*").addCategory(Intent.CATEGORY_OPENABLE),IMPORT);}catch(Exception e){notice("Výber súboru nie je dostupný.");}});}
  }

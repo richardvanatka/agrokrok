@@ -5,3 +5,8 @@ local.properties
 *.keystore
 key.properties
 signing.properties
+*.p12
+*.pass
+private-signing/
+node_modules/
+output/
