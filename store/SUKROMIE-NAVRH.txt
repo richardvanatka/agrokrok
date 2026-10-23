@@ -1,0 +1,25 @@
+NÁVRH ZÁSAD OCHRANY SÚKROMIA — AgroKrok pre Android
+Verzia návrhu: 23. 10. 2026
+Pred zverejnením doplň vydavateľa a podporný e-mail. Tento návrh opisuje pribalenú offline Android verziu; nejde o zásady samostatného hostovaného webu.
+
+Vydavateľ a kontakt
+[DOPLNIŤ VEREJNÉ MENO VYDAVATEĽA]
+[DOPLNIŤ PODPORNÝ E-MAIL]
+
+Údaje v aplikácii
+Aplikácia si v súkromnom úložisku zariadenia uchováva voliteľnú prezývku, denný cieľ, výsledky úloh, body, termíny opakovania, aktivitu a vlastné poznámky. Nepotrebuješ uvádzať celé meno ani iné osobné údaje. Tieto informácie slúžia na učenie a zobrazenie pokroku.
+
+Prenos a zdieľanie
+Táto offline Android verzia neobsahuje reklamu, analytiku, účty ani vlastný server na príjem pokroku. Aplikácia nemá oprávnenie INTERNET. Učebný obsah, štýly a skripty sú súčasťou balíka; externé fonty sa nenačítavajú. Pri otvorení odborného odkazu sa použije externý prehliadač. Spracúvanie údajov externými webmi sa riadi ich vlastnými pravidlami. Distribúciu a aktualizácie cez Google Play a systémové služby upravujú pravidlá Google a zariadenia.
+
+Záloha
+Na tvoju žiadosť môže aplikácia exportovať výsledky a poznámky do JSON súboru do umiestnenia zvoleného v systémovom dialógu. Ak vyberieš cloudové úložisko, prenos spravuje tebou zvolený poskytovateľ. Pri importe si sám vyberieš zálohu. Exportovanú zálohu chráň rovnako ako vlastné poznámky.
+
+Uchovanie a vymazanie
+Údaje zostávajú do ich vymazania alebo odinštalovania. V Môj pokrok je možnosť Vymazať moje údaje. Údaje možno vymazať aj v nastaveniach systému Android. Automatické zálohovanie aplikácie systémom je vypnuté. Už exportované súbory sa vymazávajú samostatne v zvolenom úložisku. Na serveri sa účet nevytvára.
+
+Mladí používatelia
+Aplikácia slúži predovšetkým stredoškolákom. Nepotrebuje kontakty, polohu, kameru ani mikrofón. Do poznámok nevkladaj citlivé údaje. Finálne vekové určenie musí vydavateľ pravdivo uviesť v Google Play.
+
+Zmeny
+Pri zmene funkcií, oprávnení alebo spracúvania údajov vydavateľ aktualizuje tento dokument aj údaje v Google Play. Otázky možno poslať na uvedený podporný e-mail.

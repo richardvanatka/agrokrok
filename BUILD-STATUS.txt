@@ -1,0 +1,19 @@
+AgroKrok Android — stav k 23. 10. 2026
+
+DOKONČENÉ
+- Offline Android projekt: 24 lekcií, 96 úloh, Android targetSdk 36.
+- Kontrola Java zdroja kompilátorom JDK 17 proti skutočnému Android SDK 36 a WebKit 1.15.0: úspešná (iba upozornenia na API pre staršie zariadenia).
+- Kontrola JavaScriptu a automatické kontroly piatich obrazoviek, údajov učiva a mosta pre zálohy: úspešná.
+- Kontrola XML manifestu a zdrojov, ikony 512×512 a grafiky 1024×500: úspešná.
+- Oficiálny Gradle Wrapper 8.13 bol vygenerovaný a je priložený.
+
+NEDOKONČENÉ
+- Gradle assembleDebug / bundleRelease: nepodarilo sa stiahnuť závislosti pluginu com.android.application 8.13.0 z tohto prostredia. Podrobnejší výpis hlási Network is unreachable v sieťovej vrstve Java procesu. Python vie stiahnuť metadáta zo správnej oficiálnej adresy; nemožno preto tento výsledok zamieňať za dôkaz chybnej verzie závislosti.
+- V tomto balíku NIE JE APK ani AAB. Treba ho zostaviť v Android Studio s prístupom k Google Maven a Maven Central.
+- Nevykonali sme test na fyzickom Android zariadení, emulátore ani Google Play pre-launch report.
+- Chýba verejný vydavateľ, kontaktný e-mail a finalizované/publikované zásady súkromia.
+- Nevytvorili sme produkčný podpisový kľúč ani aplikáciu v Play Console. Nič nebolo odoslané spoločnosti Google.
+
+BALÍK JE ZDROJOVÁ PRÍPRAVA NA VYDANIE, NIE HOTOVÝ SÚBOR NA NAHRATIE DO GOOGLE PLAY.
+
+DOPLNENÉ: ručne spúšťané GitHub Actions zostavenie v režimoch test a play; pripnuté verzie akcií, overenie Gradle distribúcie, dočasné použitie upload kľúča zo Secrets. Workflow a natívne obsahové kontroly prešli. Reálny beh na GitHube ešte neprebehol, čaká na samostatný repozitár.

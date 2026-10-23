@@ -1,0 +1,100 @@
+name: AgroKrok Android
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'test = testovaci APK + nepodpisany AAB; play = podpisany AAB'
+        required: true
+        default: test
+        type: choice
+        options: [test, play]
+permissions:
+  contents: read
+concurrency:
+  group: agrokrok-android-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Java 17
+        uses: actions/setup-java@b843ebf9b913146b38da2eaa7aeddf76074ae1ad # v6
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: SDK 36 and Build Tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          sdkmanager "platforms;android-36" "build-tools;35.0.0"
+          printf 'sdk.dir=%s\n' "$ANDROID_HOME" > local.properties
+          chmod +x gradlew
+      - name: Prepare Play upload key
+        if: inputs.mode == 'play'
+        shell: bash
+        env:
+          KEYSTORE_BASE64: ${{ secrets.AGROKROK_KEYSTORE_BASE64 }}
+          AGROKROK_STORE_PASSWORD: ${{ secrets.AGROKROK_STORE_PASSWORD }}
+          AGROKROK_KEY_ALIAS: ${{ secrets.AGROKROK_KEY_ALIAS }}
+          AGROKROK_KEY_PASSWORD: ${{ secrets.AGROKROK_KEY_PASSWORD }}
+        run: |
+          set -euo pipefail
+          test -n "$KEYSTORE_BASE64" && test -n "$AGROKROK_STORE_PASSWORD" && test -n "$AGROKROK_KEY_ALIAS" && test -n "$AGROKROK_KEY_PASSWORD" || { echo 'Chybaju podpisove GitHub Secrets.'; exit 1; }
+          if grep -qE 'DOPLNIŤ|NÁVRH ZÁSAD' app/src/main/assets/privacy.html; then
+            echo 'Pred Play zostavenim dokoncite zasady sukromia a kontakt vydavatela.'
+            exit 1
+          fi
+          umask 077
+          printf '%s' "$KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/agrokrok-upload.jks"
+      - name: Check lesson content
+        run: node tests/native-content.cjs
+      - name: Build test APK and inspection AAB
+        if: github.event_name == 'push' || inputs.mode == 'test'
+        run: ./gradlew --no-daemon --console=plain assembleDebug bundleRelease
+      - name: Build signed Play candidate
+        if: inputs.mode == 'play'
+        env:
+          AGROKROK_KEYSTORE_PATH: ${{ runner.temp }}/agrokrok-upload.jks
+          AGROKROK_STORE_PASSWORD: ${{ secrets.AGROKROK_STORE_PASSWORD }}
+          AGROKROK_KEY_ALIAS: ${{ secrets.AGROKROK_KEY_ALIAS }}
+          AGROKROK_KEY_PASSWORD: ${{ secrets.AGROKROK_KEY_PASSWORD }}
+        run: ./gradlew --no-daemon --console=plain bundleRelease
+      - name: Collect output
+        shell: bash
+        env:
+          BUILD_MODE: ${{ inputs.mode || 'test' }}
+        run: |
+          set -euo pipefail
+          mkdir -p output
+          if [ "$BUILD_MODE" = 'test' ]; then
+            cp app/build/outputs/apk/debug/app-debug.apk output/AgroKrok-TEST.apk
+            cp app/build/outputs/bundle/release/app-release.aab output/AgroKrok-UNSIGNED.aab
+            printf 'TEST.apk je na skusanie. UNSIGNED.aab nema podpis a nie je hotovy na Google Play.\n' > output/PRECITAJ.txt
+          else
+            cp app/build/outputs/bundle/release/app-release.aab output/AgroKrok-PLAY-CANDIDATE.aab
+            jarsigner -verify -strict output/AgroKrok-PLAY-CANDIDATE.aab > "$RUNNER_TEMP/signature-check.txt" 2>&1 || result=$?
+            if [ "${result:-0}" -ne 0 ] && [ "${result:-0}" -ne 4 ]; then
+              echo 'Overenie podpisu neuspesne.'; exit 1
+            fi
+            grep -q 'jar verified' "$RUNNER_TEMP/signature-check.txt" || { echo 'Podpis nebol overeny.'; exit 1; }
+            printf 'Podpisany kandidat na testovanie v Google Play. Schvalenie vydania stale vykonava Google.\n' > output/PRECITAJ.txt
+          fi
+          (cd output && sha256sum *.aab *.apk 2>/dev/null > SHA256SUMS.txt) || test -s output/SHA256SUMS.txt
+      - name: Downloadable files
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: AgroKrok-${{ inputs.mode || 'test' }}-${{ github.run_number }}
+          path: output/
+          if-no-files-found: error
+          retention-days: 7
+      - name: Remove temporary key
+        if: always()
+        shell: bash
+        run: rm -f "$RUNNER_TEMP/agrokrok-upload.jks"

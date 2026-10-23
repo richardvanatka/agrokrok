@@ -1,0 +1,25 @@
+plugins { id 'com.android.application' }
+android {
+ namespace 'sk.agrokrok.app'
+ buildFeatures { buildConfig true }
+ compileSdk 36
+ defaultConfig { applicationId 'sk.agrokrok.app'; minSdk 23; targetSdk 36; versionCode 1; versionName '1.0.0' }
+ signingConfigs {
+  if (System.getenv('AGROKROK_KEYSTORE_PATH')) {
+   upload {
+    storeFile file(System.getenv('AGROKROK_KEYSTORE_PATH'))
+    storePassword System.getenv('AGROKROK_STORE_PASSWORD')
+    keyAlias System.getenv('AGROKROK_KEY_ALIAS')
+    keyPassword System.getenv('AGROKROK_KEY_PASSWORD')
+   }
+  }
+ }
+ buildTypes {
+  release {
+   minifyEnabled false
+   if (System.getenv('AGROKROK_KEYSTORE_PATH')) { signingConfig signingConfigs.upload }
+  }
+ }
+ compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+}
+dependencies { implementation 'androidx.webkit:webkit:1.15.0' }
