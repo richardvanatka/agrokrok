@@ -1,19 +1,24 @@
 AgroKrok Android — stav k 23. 10. 2026
 
 DOKONČENÉ
-- Offline Android projekt: 24 lekcií, 96 úloh, Android targetSdk 36.
-- Kontrola Java zdroja kompilátorom JDK 17 proti skutočnému Android SDK 36 a WebKit 1.15.0: úspešná (iba upozornenia na API pre staršie zariadenia).
-- Kontrola JavaScriptu a automatické kontroly piatich obrazoviek, údajov učiva a mosta pre zálohy: úspešná.
-- Kontrola XML manifestu a zdrojov, ikony 512×512 a grafiky 1024×500: úspešná.
-- Oficiálny Gradle Wrapper 8.13 bol vygenerovaný a je priložený.
+- Projekt je nahraný v richardvanatka/agrokrok.
+- GitHub Actions úspešne zostavil assembleDebug a bundleRelease.
+- Overený beh: https://github.com/richardvanatka/agrokrok/actions/runs/40014861259
+- Zdroj zostavenia: a98dfaa9a207e594b17ea4f214dc43bd4b0d6130.
+- Testovacie APK má platný testovací podpis (v1/v2); overené kontrolné súčty a pribalené údaje.
+- Offline učivo: 24 lekcií, 96 úloh, Android targetSdk 36.
+- Automatická kontrola učiva, piatich obrazoviek a mosta záloh prešla.
 
-NEDOKONČENÉ
-- Gradle assembleDebug / bundleRelease: nepodarilo sa stiahnuť závislosti pluginu com.android.application 8.13.0 z tohto prostredia. Podrobnejší výpis hlási Network is unreachable v sieťovej vrstve Java procesu. Python vie stiahnuť metadáta zo správnej oficiálnej adresy; nemožno preto tento výsledok zamieňať za dôkaz chybnej verzie závislosti.
-- V tomto balíku NIE JE APK ani AAB. Treba ho zostaviť v Android Studio s prístupom k Google Maven a Maven Central.
-- Nevykonali sme test na fyzickom Android zariadení, emulátore ani Google Play pre-launch report.
-- Chýba verejný vydavateľ, kontaktný e-mail a finalizované/publikované zásady súkromia.
-- Nevytvorili sme produkčný podpisový kľúč ani aplikáciu v Play Console. Nič nebolo odoslané spoločnosti Google.
+NA VYSKÚŠANIE
+- AgroKrok-TEST.apk slúži na inštaláciu do Android mobilu mimo obchodu.
+- AgroKrok-UNSIGNED.aab nie je podpísaný upload kľúčom a nie je pripravený na nahratie do Google Play.
+- APK ešte nebolo otestované na fyzickom Android zariadení alebo emulátore.
 
-BALÍK JE ZDROJOVÁ PRÍPRAVA NA VYDANIE, NIE HOTOVÝ SÚBOR NA NAHRATIE DO GOOGLE PLAY.
+PRED GOOGLE PLAY
+- Doplniť verejný kontakt vydavateľa a finalizovať/publikovať zásady súkromia.
+- Vytvoriť a bezpečne zálohovať upload podpisový kľúč; nastaviť GitHub Secrets.
+- Dokončiť záznam v obchode, Data safety, vekové určenie a ostatné požadované údaje.
+- Overiť aplikáciu v mobile a Google Play testovacom kanáli.
+- Použiť režim play na vytvorenie podpísaného kandidáta AAB.
 
-DOPLNENÉ: ručne spúšťané GitHub Actions zostavenie v režimoch test a play; pripnuté verzie akcií, overenie Gradle distribúcie, dočasné použitie upload kľúča zo Secrets. Workflow a natívne obsahové kontroly prešli. Reálny beh na GitHube ešte neprebehol, čaká na samostatný repozitár.
+Nič nebolo z tohto projektu odoslané spoločnosti Google na kontrolu ani verejne vydané v obchode.
