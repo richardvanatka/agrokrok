@@ -1,6 +1,6 @@
 # AgroKrok — celoročný tréning
 
-[Stiahnuť AgroKrok 2.0 pre Android (APK)](https://github.com/richardvanatka/agrokrok/raw/refs/heads/main/downloads/AgroKrok.apk)
+[Stiahnuť AgroKrok 2.0.1 pre Android (APK)](https://github.com/richardvanatka/agrokrok/raw/refs/heads/main/downloads/AgroKrok.apk)
 
 Pred prechodom zo starých skúšobných verzií 1.0.x exportuj pokrok v Môj pokrok. Ich podpis je odlišný; po odinštalovaní a inštalácii 2.0 importuj zálohu.
 
@@ -27,4 +27,4 @@ Natívne Android zdieľanie odošle iba používateľom potvrdenú správu s úr
 
 GitHub Actions sa spúšťa pri zmene hlavnej vetvy alebo cez Actions > AgroKrok Android > Run workflow, režim test/play. Režim test vytvorí testovacie APK a nepodpísané AAB, režim play vyžaduje upload kľúč v GitHub Secrets a finalizované zásady súkromia. Neuverejňuje aplikáciu na Google Play. Výstupy sú uložené sedem dní. Verejné distribučné APK sa po kontrole a podpise nachádza v downloads/.
 
-Pred Google Play zostáva finalizácia kontaktu a zásad súkromia, údajov obchodu a požadovaných testov. Podklady v RELEASE-PREPARATION.md a BUILD-STATUS.txt.
+Zásady súkromia sú dokončené: [verejná stránka](https://agrokrok-farmarstvo.pracovn-prie-3256.chatgpt.site/android-privacy.html). Kontakt vydavateľa Cowboysbase: richard.vanatka@gmail.com. Aktualizácia 2.0.1 zachováva pokrok z podpísanej 2.0; aplikáciu neodinštaluj. Vymazanie údajov na výslovnú žiadosť používateľa zahŕňa aj interné zálohy. Pred Google Play zostáva dokončenie údajov obchodu a požadovaných testov. Podklady v RELEASE-PREPARATION.md a BUILD-STATUS.txt.

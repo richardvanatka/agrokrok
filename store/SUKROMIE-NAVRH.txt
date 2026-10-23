@@ -1,25 +1,73 @@
-NÁVRH ZÁSAD OCHRANY SÚKROMIA — AgroKrok pre Android
-Verzia návrhu: 23. 10. 2026
-Pred zverejnením doplň vydavateľa a podporný e-mail. Tento návrh opisuje pribalenú offline Android verziu; nejde o zásady samostatného hostovaného webu.
+ZÁSADY OCHRANY SÚKROMIA — AgroKrok pre Android
 
-Vydavateľ a kontakt
-[DOPLNIŤ VEREJNÉ MENO VYDAVATEĽA]
-[DOPLNIŤ PODPORNÝ E-MAIL]
+AGROKROK · ANDROID
+Zásady ochrany súkromia
+Učenie a pokrok zostávajú v tvojom zariadení.
+Platné od 24. októbra 2026 · verzia dokumentu 1.0
 
-Údaje v aplikácii
-Aplikácia si v súkromnom úložisku zariadenia uchováva voliteľnú prezývku, denný cieľ, výsledky úloh, body, termíny opakovania, aktivitu a vlastné poznámky. Nepotrebuješ uvádzať celé meno ani iné osobné údaje. Tieto informácie slúžia na učenie a zobrazenie pokroku.
+Súkromie v skratke
+Bez registrácie, reklám a sledovania učenia na serveri.
+Pokrok a poznámky sa ukladajú iba v aplikácii na tvojom zariadení.
+Výsledok alebo zálohu odošleš len vlastným rozhodnutím.
+Údaje vrátane interných záloh môžeš vymazať v časti Môj pokrok.
 
-Prenos a zdieľanie
-Táto offline Android verzia neobsahuje reklamu, analytiku, účty ani vlastný server na príjem pokroku. Aplikácia nemá oprávnenie INTERNET. Učebný obsah, štýly a skripty sú súčasťou balíka; externé fonty sa nenačítavajú. Pri otvorení odborného odkazu sa použije externý prehliadač. Spracúvanie údajov externými webmi sa riadi ich vlastnými pravidlami. Distribúciu a aktualizácie cez Google Play a systémové služby upravujú pravidlá Google a zariadenia.
+1. Vydavateľ a kontakt
+Vydavateľom aplikácie AgroKrok pre Android je Cowboysbase — Richard Vaňatka (ďalej „vydavateľ“). Pre otázky o súkromí, uplatnenie práv a technickú podporu použi richard.vanatka@gmail.com.
+Tieto zásady opisujú pribalenú offline aplikáciu pre Android, balík sk.agrokrok.app, od verzie 2.0.1. Samostatná webová verzia aplikácie nie je predmetom tohto dokumentu.
 
-Záloha
-Na tvoju žiadosť môže aplikácia exportovať výsledky a poznámky do JSON súboru do umiestnenia zvoleného v systémovom dialógu. Ak vyberieš cloudové úložisko, prenos spravuje tebou zvolený poskytovateľ. Pri importe si sám vyberieš zálohu. Exportovanú zálohu chráň rovnako ako vlastné poznámky.
+2. Čo sa ukladá a na čo to slúži
+Aplikácia v súkromnom úložisku zariadenia uchováva tieto údaje:
+Profil a nastavenia: voliteľné meno alebo prezývka a denný cieľ.
+Pokrok: prejdené témy a stupne, XP a úroveň, výsledky tréningov a dátumy aktivity.
+Opakovanie: správne a chybné odpovede, štatistiky otázok a termíny ďalšieho precvičovania.
+Poznámky: vlastný text pridaný k učivu.
+Interné zálohy: kópia stavu pred prevodom staršieho pokroku a pred importom zálohy, aby bolo možné predísť strate údajov.
+Údaje slúžia na uloženie tvojho postupu, zobrazenie výsledkov a prispôsobenie opakovania. Výber ďalších otázok prebieha priamo v zariadení. Nejde o rozhodovanie s právnymi alebo obdobne závažnými účinkami.
+Celé meno, e-mail ani telefón na učenie nepotrebuješ. Aplikácia nevytvára online účet. Vydavateľ nemá vzdialený prístup k uloženému pokroku ani poznámkam a automaticky ich nedostáva.
 
-Uchovanie a vymazanie
-Údaje zostávajú do ich vymazania alebo odinštalovania. V Môj pokrok je možnosť Vymazať moje údaje. Údaje možno vymazať aj v nastaveniach systému Android. Automatické zálohovanie aplikácie systémom je vypnuté. Už exportované súbory sa vymazávajú samostatne v zvolenom úložisku. Na serveri sa účet nevytvára.
+3. Internet, oprávnenia a reklama
+Táto Android aplikácia nemá oprávnenie na prístup k internetu. Učivo, skripty a vzhľad sú súčasťou inštalácie; pri učení sa nenačítavajú externé fonty ani vzdialený obsah.
+Neobsahuje reklamy, reklamné identifikátory, analytické ani sledovacie nástroje. Nevyžaduje kontakty, polohu, kameru ani mikrofón. Nezhromažďuje platobné údaje. Na výber súboru a zdieľanie používa systémové dialógy Androidu, bez plošného prístupu k tvojim súborom.
 
-Mladí používatelia
-Aplikácia slúži predovšetkým stredoškolákom. Nepotrebuje kontakty, polohu, kameru ani mikrofón. Do poznámok nevkladaj citlivé údaje. Finálne vekové určenie musí vydavateľ pravdivo uviesť v Google Play.
+4. Zdieľanie výsledku a pozvanie kamaráta
+Po stlačení Zdieľať výsledok alebo Zdieľať výsledok a aplikáciu sa otvorí systémový výber aplikácie na zdieľanie. Sám si zvolíš aplikáciu a príjemcu a potvrdíš odoslanie.
+Pripravená správa obsahuje úroveň, XP, počet prejdených tém a stupňov, prípadne úspešnosť posledného tréningu, a verejný odkaz na stiahnutie AgroKroku. Neobsahuje meno či prezývku, poznámky ani úplnú zálohu. Ak správu sám doplníš, zdieľaš aj doplnený obsah.
+Príjemca dostane iba odoslanú správu. Aplikácia mu neposkytuje priebežný prístup k tvojmu pokroku. Nie je tu spoločný online rebríček, sledovanie spolužiakov ani chat. Zvolená služba na zdieľanie spracúva správu podľa vlastných zásad a môže ju spojiť s tvojím účtom v tejto službe.
 
-Zmeny
-Pri zmene funkcií, oprávnení alebo spracúvania údajov vydavateľ aktualizuje tento dokument aj údaje v Google Play. Otázky možno poslať na uvedený podporný e-mail.
+5. Export a import zálohy
+V časti Môj pokrok → Exportovať zálohu môžeš uložiť súbor JSON s pokrokom, nastaveniami, prípadnou prezývkou a poznámkami. Miesto uloženia vyberáš v systémovom dialógu. Exportovaný súbor nie je aplikáciou osobitne zašifrovaný; chráň ho rovnako ako osobné poznámky.
+Ak vyberieš cloudové úložisko alebo súbor sám prepošleš, jeho prenos a ďalšie uchovávanie zabezpečuje zvolený poskytovateľ. Pri importe vyberieš konkrétny súbor a potvrdíš nahradenie aktuálneho pokroku. V zariadení sa ponechá interná kópia predchádzajúceho stavu.
+
+6. Ako dlho údaje zostávajú a ako ich vymazať
+Lokálny pokrok, nastavenia, poznámky a interné zálohy zostávajú v zariadení, kým ich nevymažeš. Bežná aktualizácia s rovnakým podpisom ich zachováva. Automatické systémové zálohovanie aplikácie je vypnuté.
+Otvor Môj pokrok → Vymazať moje údaje.
+Potvrď vymazanie. Odstráni sa pokrok, profil, poznámky aj interné kópie pred migráciou a importom.
+Údaje môžeš odstrániť aj cez nastavenia Androidu vymazaním úložiska aplikácie alebo jej odinštalovaním. Na serveri vydavateľa sa účet ani kópia pokroku nenachádzajú.
+Samostatne uložené exporty a už odoslané správy tým nezmiznú. Exporty vymaž v príslušnom úložisku; odoslané správy spravuj v službe, ktorou si ich poslal. Na obnovenie vymazaného pokroku je potrebná tvoja predtým vytvorená záloha.
+
+7. Externé odkazy a poskytovatelia
+Odborné odkazy, verejná stránka týchto zásad a odkaz na stiahnutie sa otvárajú mimo offline aplikácie v prehliadači alebo príslušnej službe. Navštívená služba môže prijať IP adresu, čas požiadavky a technické údaje prehliadača. Aplikácia jej neposiela uložený pokrok ani poznámky.
+Stiahnutie APK z GitHubu, používanie Google Play, systému Android, e-mailu, cloudového úložiska a aplikácie na zdieľanie sa riadi aj zásadami týchto poskytovateľov. Verejná stránka zásad je poskytovaná cez hosting ChatGPT Sites; jej načítanie vyžaduje webovú požiadavku. Nie sú v nej vložené reklamné ani analytické skripty vydavateľa.
+Poskytovatelia môžu spracúvať údaje aj mimo EHP podľa vlastných podmienok a uplatniteľných pravidiel. Samotná offline aplikácia neposiela údaje o učení do zahraničia. Ďalšie informácie: Google, GitHub a OpenAI / ChatGPT Sites.
+
+8. Ak kontaktuješ podporu
+Ak pošleš e-mail, vydavateľ dostane adresu odosielateľa, prípadné meno, obsah správy a prílohy, ktoré dobrovoľne odošleš. Tieto údaje použije na vybavenie otázky, technickej podpory alebo žiadosti týkajúcej sa súkromia. Podporu zabezpečuje cez uvedenú schránku Gmail od spoločnosti Google. Pokrok ani zálohu nemusíš posielať; citlivé údaje do správy ani príloh nevkladaj.
+Právnym základom vybavenia bežnej podpory je oprávnený záujem na riešení podnetov používateľov podľa čl. 6 ods. 1 písm. f) GDPR. Pri vybavovaní zákonných žiadostí je základom splnenie právnej povinnosti podľa čl. 6 ods. 1 písm. c) GDPR. Poskytnutie údajov na bežnú podporu je dobrovoľné; bez kontaktnej adresy nie je možné odpovedať.
+Bežná podporná komunikácia sa uchováva najviac 12 mesiacov od uzavretia podnetu a potom sa vymaže. Ak je dlhšie uchovanie potrebné na splnenie zákonnej povinnosti alebo riešenie konkrétneho právneho nároku, uchová sa iba potrebný rozsah po nevyhnutný čas. Údaje sa nepoužívajú na marketing ani sa nepredávajú.
+
+9. Tvoje možnosti a práva
+Lokálne údaje si môžeš prezrieť v aplikácii, upraviť profil a poznámky, exportovať zálohu a údaje vymazať. Vydavateľ k nim nemá vzdialený prístup.
+Vo vzťahu k osobným údajom, ktoré vydavateľ skutočne dostane, napríklad v podpornej správe, môžeš za podmienok GDPR požiadať o prístup, opravu, vymazanie, obmedzenie spracúvania a prípadne prenosnosť. Môžeš namietať spracúvanie založené na oprávnenom záujme. Žiadosť pošli na richard.vanatka@gmail.com; odpoveď dostaneš bez zbytočného odkladu, spravidla do jedného mesiaca, s možným zákonným predĺžením pri zložitých žiadostiach.
+Máš tiež právo podať sťažnosť dozornému orgánu, najmä Úradu na ochranu osobných údajov Slovenskej republiky alebo orgánu v krajine svojho pobytu. Poskytnutie údajov pre podporu nie je podmienkou používania aplikácie.
+
+10. Mladí používatelia a bezpečnosť
+AgroKrok je vzdelávacia pomôcka určená predovšetkým stredoškolákom. Nie je potrebné zverejňovať meno, školu, triedu ani kontaktné údaje. Mladší používatelia môžu pri zdieľaní alebo kontaktovaní podpory požiadať o pomoc rodiča či zákonného zástupcu.
+Údaje sú uložené v súkromnom priestore aplikácie chránenom mechanizmami Androidu. Bezpečnosť závisí aj od zabezpečenia telefónu; používaj zámok obrazovky a zálohy odovzdávaj iba dôveryhodným osobám. Poznámky nie sú určené na ukladanie hesiel, zdravotných ani iných citlivých údajov.
+
+11. Zmeny zásad
+Pri zmene funkcií alebo spôsobu spracúvania údajov vydavateľ aktualizuje tieto zásady, dátum účinnosti a príslušné údaje v Google Play. Prípadné budúce online účty či spoločné výzvy budú potrebovať nové informácie o spracúvaní údajov ešte pred ich použitím.
+
+AgroKrok · Cowboysbase
+richard.vanatka@gmail.com
+
+Verejná adresa: https://agrokrok-farmarstvo.pracovn-prie-3256.chatgpt.site/android-privacy.html
