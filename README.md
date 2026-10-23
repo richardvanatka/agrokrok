@@ -1,5 +1,9 @@
 # AgroKrok — celoročný tréning
 
+[Stiahnuť AgroKrok 2.0 pre Android (APK)](https://github.com/richardvanatka/agrokrok/raw/refs/heads/main/downloads/AgroKrok.apk)
+
+Pred prechodom zo starých skúšobných verzií 1.0.x exportuj pokrok v Môj pokrok. Ich podpis je odlišný; po odinštalovaní a inštalácii 2.0 importuj zálohu.
+
 Offline Android pomôcka pre prvý ročník farmárstva. 178 tém, 1 527 položiek v banke úloh, 890 stupňov v 18 oblastiach. Päť stupňov témy: poznaj, rozlíš, vybav si, prepoj, zvládni. Po dokončení pokračujú miešané majstrovské tréningy. Výsledky odpovedí riadia intervaly opakovania. Generované číselné príklady majú vypočítateľnú správnu odpoveď.
 
 **Rozsah nie je potvrdený úplný obsah školských osnov.** Zverejnený plán SOŠ PaSV Levice 2025 určuje predmety; podrobné osnovy sú iba na nahliadnutie v škole. Jazyky a všeobecné predmety predstavujú základný tréning; prax a telesná výchova iba teoretickú prípravu. Podrobnosti: [course/RESEARCH.md](course/RESEARCH.md).
@@ -8,7 +12,7 @@ Offline Android pomôcka pre prvý ročník farmárstva. 178 tém, 1 527 položi
 
 Zachováva sa kľúč `agrokrok-v1`, pôvodné identifikátory lekcií, body, dátumy, poznámky aj starý formát JSON zálohy. Prvý stupeň pôvodnej prejdenej témy sa započíta automaticky. Nové stupne sa nedarujú bez tréningu. Pri migrácii sa ponechá lokálna kópia pôvodného stavu. Testy overujú import všetkých pôvodných lekcií so 730 XP bez straty.
 
-Android môže nainštalovať aktualizáciu na existujúcu aplikáciu iba s kompatibilným podpisom. Staré testovacie 1.0.x zostavy z runnera mali dočasné podpisy; ich súkromné kľúče sa neuchovali. Pred prechodom treba export zálohy a následný import. Pred distribúciou vydania 2.0 treba pripraviť stabilný podpisový kľúč mimo repozitára. Súkromný kľúč, heslá ani podpisová záloha nepatria do repozitára.
+Android môže nainštalovať aktualizáciu na existujúcu aplikáciu iba s kompatibilným podpisom. Staré testovacie 1.0.x zostavy z runnera mali dočasné podpisy; ich súkromné kľúče sa neuchovali. Pred prechodom treba export zálohy a následný import. Distribučné APK vydania 2.0 je podpísané stabilným kľúčom mimo repozitára. Súkromná záloha sa uchováva oddelene. Súkromný kľúč, heslá ani podpisová záloha nepatria do repozitára.
 
 ## Zdieľanie
 

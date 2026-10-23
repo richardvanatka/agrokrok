@@ -1,7 +1,15 @@
-AgroKrok 2.0.0 — 23. 10. 2026
+AgroKrok 2.0.0 — zostavené a overené 24. 10. 2026
+
 178 tém, 1527 položiek úloh, 890 stupňov, 18 oblastí.
-Lokálne prešli automatické kontroly učiva, starých záloh a zachovania pokroku, hodnotenia, opakovania, výpočtov a zdieľania.
-Nové Android zostavenie a test skutočného mobilného prehliadača ešte neprebehli. Automatická kontrola zablokovala nahratie zdrojov do verejného GitHub repozitára, kým používateľ výslovne neschváli zverejnenie zdrojového kódu. V tomto balíku nie je APK verzie 2.0.
-Podrobný obsah prvého ročníka ešte musí posúdiť učiteľ podľa konkrétnych osnov.
+Prešli obsahové kontroly, migrácia pôvodných záloh, zachovanie XP/poznámok, postupovanie, odpoveďami riadené opakovanie a zdieľanie.
+Prešiel test skutočného mobilného prehliadača Chromium: tlačidlo, kvíz, pôvodný pokrok, export, zdieľanie bez mena/poznámok a vyhľadávanie.
+GitHub Actions úspešne zostavil debug APK, release APK a release AAB.
+Overený beh: https://github.com/richardvanatka/agrokrok/actions/runs/40035403114
+Distribučná APK je lokálne podpísaná trvalým certifikátom (v1/v2/v3) a podpis je overený.
+Verejné APK: downloads/AgroKrok.apk. Kontrolný súčet a certifikát: downloads/.
+
+PRED PRECHODOM Z 1.0.x EXPORTOVAŤ POKROK. Staré skúšobné podpisy sa nedajú použiť na priamu aktualizáciu. Po inštalácii 2.0 importovať zálohu. Pri budúcich aktualizáciách použiť rovnaký trvalý podpis a applicationId.
+
+Neoverené: fyzické Android zariadenie tejto verzie a Google Play pre-launch report. Úplnosť učiva musí posúdiť učiteľ podľa konkrétnych osnov.
 Cloudové účty, chat a sledovanie spolužiakov nie sú implementované.
-Zásady súkromia a kontakt sú stále návrhom; nejde o vydanie na Google Play.
+Kontakt a zásady súkromia sú stále návrhom. AAB zatiaľ nemá upload podpis; nič nebolo odoslané do Google Play.
