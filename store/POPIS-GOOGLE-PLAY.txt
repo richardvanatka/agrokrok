@@ -7,14 +7,16 @@ Farmárstvo krok za krokom: krátke lekcie, kvízy a opakovanie aj offline.
 ÚPLNÝ POPIS
 Poľnohospodárstvo sa dá učiť aj po malých krokoch. AgroKrok pomáha žiakom pochopiť základné súvislosti pomocou krátkych vysvetlení, praktických príkladov a úloh.
 
-Čo nájdeš v prvej verzii?
-• 24 úvodných odborných lekcií a 96 úloh.
+Čo nájdeš v aplikácii?
+• 178 tém, 1 527 položiek úloh a 890 postupových stupňov v 18 oblastiach.
 • Pôdu, biológiu rastlín, pestovanie, chov, techniku a hospodárenie.
-• Výber odpovede, výpočty aj zoraďovanie pojmov.
-• Vysvetlenie správnych odpovedí a precvičovanie chýb.
+• Výber odpovede, vybavovanie pojmov bez možností, praktické situácie a výpočty.
+• Vysvetlenie správnych odpovedí, precvičovanie chýb a opakovanie podľa výsledkov.
+• Ďalšie miešané majstrovské výzvy po dokončení celej cesty.
 • Denný cieľ, skúsenostné body, odznaky a sériu učenia.
 • Vyhľadávanie v učive, vlastné poznámky a export/import pokroku.
 • Učivo uložené priamo v aplikácii na učenie bez internetu.
+• Zdieľanie výsledku s kamarátom spolu s odkazom na stiahnutie aplikácie.
 
 AgroKrok je úvodná odborná pomôcka najmä pre študentov agropodnikania a farmárstva. Nenahrádza celý školský vzdelávací program ani praktický výcvik pod vedením učiteľa. Nie je oficiálnou aplikáciou školy alebo ministerstva.
 
@@ -24,7 +26,14 @@ KATEGÓRIA
 Vzdelávanie / Education
 
 CENA
-Návrh: bezplatná aplikácia bez reklám a bez nákupov.
+Bezplatná aplikácia bez reklám a bez nákupov.
 
 ČO TREBA DOPLNIŤ PRED ODOSLANÍM
-Verejné meno vydavateľa; podporný e-mail; potvrdený prevádzkovateľ a kontakt v zásadách súkromia; verejná URL týchto zásad; skutočné snímky Android aplikácie; obsahový dotazník a vekové určenie podľa skutočných používateľov.
+Skutočné snímky Android aplikácie; obsahový dotazník a vekové určenie podľa skutočných používateľov.
+
+VYDAVATEĽ A VEREJNÝ KONTAKT
+Cowboysbase — Richard Vaňatka
+richard.vanatka@gmail.com
+
+ZÁSADY OCHRANY SÚKROMIA — VEREJNÁ URL
+https://agrokrok-farmarstvo.pracovn-prie-3256.chatgpt.site/android-privacy

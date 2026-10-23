@@ -1,15 +1,17 @@
-AgroKrok 2.0.0 — zostavené a overené 24. 10. 2026
+AgroKrok 2.0.1 — zostavené a overené 24. 10. 2026
 
 178 tém, 1527 položiek úloh, 890 stupňov, 18 oblastí.
 Prešli obsahové kontroly, migrácia pôvodných záloh, zachovanie XP/poznámok, postupovanie, odpoveďami riadené opakovanie a zdieľanie.
-Prešiel test skutočného mobilného prehliadača Chromium: tlačidlo, kvíz, pôvodný pokrok, export, zdieľanie bez mena/poznámok a vyhľadávanie.
+Prešiel test mobilného prehliadača Chromium vrátane čitateľnosti zásad, kontaktu bez placeholderov, vymazania pokroku aj interných záloh.
 GitHub Actions úspešne zostavil debug APK, release APK a release AAB.
-Overený beh: https://github.com/richardvanatka/agrokrok/actions/runs/40035403114
-Distribučná APK je lokálne podpísaná trvalým certifikátom (v1/v2/v3) a podpis je overený.
+Overený beh: https://github.com/richardvanatka/agrokrok/actions/runs/40039410774
+Zdrojový commit: 48cb174c5e7913668a291eade39aa516a9db25c3
+Distribučná APK je podpísaná trvalým certifikátom (v1/v2/v3) zhodným s vydaním 2.0.0. Aktualizáciu 2.0 na 2.0.1 nainštaluj bez odinštalovania, aby sa zachoval pokrok.
 Verejné APK: downloads/AgroKrok.apk. Kontrolný súčet a certifikát: downloads/.
+Zásady súkromia dokončené, kontakt: richard.vanatka@gmail.com, vydavateľ Cowboysbase — Richard Vaňatka.
+Verejné zásady: https://agrokrok-farmarstvo.pracovn-prie-3256.chatgpt.site/android-privacy
 
-PRED PRECHODOM Z 1.0.x EXPORTOVAŤ POKROK. Staré skúšobné podpisy sa nedajú použiť na priamu aktualizáciu. Po inštalácii 2.0 importovať zálohu. Pri budúcich aktualizáciách použiť rovnaký trvalý podpis a applicationId.
-
-Neoverené: fyzické Android zariadenie tejto verzie a Google Play pre-launch report. Úplnosť učiva musí posúdiť učiteľ podľa konkrétnych osnov.
+PRED PRECHODOM ZO STARÝCH TESTOVACÍCH 1.0.x EXPORTOVAŤ POKROK. Ich podpis nie je kompatibilný; po inštalácii importovať zálohu.
+Neoverené: fyzické Android zariadenie tejto verzie a Google Play pre-launch report.
 Cloudové účty, chat a sledovanie spolužiakov nie sú implementované.
-Kontakt a zásady súkromia sú stále návrhom. AAB zatiaľ nemá upload podpis; nič nebolo odoslané do Google Play.
+AAB z testovacieho workflow zatiaľ nemá upload podpis; nič nebolo odoslané do Google Play.
