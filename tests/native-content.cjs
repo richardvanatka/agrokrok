@@ -10,6 +10,7 @@ state.name='Test';state.notes.s1='Lokálna poznámka';download();
 if(!window.agroKrokImportNative)throw Error('native importer unavailable');
 `;
 vm.runInContext(code.replace(/\}\)\(\);\s*$/,checks+'\n})();'),ctx);assert.equal(JSON.parse(exported).notes.s1,'Lokálna poznámka');
+assert(/^\s*:root\{--green:#244c3b;/.test(html.match(/<style>([\s\S]*?)<\/style>/)[1]),'valid root palette after removing font import');assert(html.includes('id="begin">Spustiť kvíz →'),'clear quiz start label');
 assert(!html.includes('@import'),'no external font');assert(!html.includes('serviceWorker.register'),'no dependency on web cache');assert(!html.includes('src="app.js"'),'logic embedded');assert(html.includes('privacy.html'),'in-app privacy');assert(!html.includes('id="install-app"'),'no redundant install button');
 const manifest=fs.readFileSync('app/src/main/AndroidManifest.xml','utf8');assert(!manifest.includes('uses-permission'),'no requested permissions');assert(manifest.includes('allowBackup="false"'),'cloud backup disabled');
 console.log('PASS: 24 lessons, 96 tasks, five views, native JSON export/import bridge, local assets, privacy link, no permissions.');

@@ -4,6 +4,7 @@ const content=fs.readFileSync(path.join(src,'dist/content.js'),'utf8');let app=f
 const data=vm.runInNewContext(content+'\n({lessons,modules})');
 app=app.replace("function download(){","function download(){if(window.AndroidBackup){window.AndroidBackup.exportBackup(JSON.stringify(state,null,2));return;}");
 app=app.replace("if($('import'))$('import').onclick=()=>$('import-file').click();","if($('import'))$('import').onclick=()=>window.AndroidBackup?window.AndroidBackup.importBackup():$('import-file').click();");
+app=app.replace('Rozumiem, poďme →','Spustiť kvíz →');
 app=app.replace('function bindMain(){',`window.agroKrokImportNative=async(raw)=>{await importFile({size:new TextEncoder().encode(raw).length,text:async()=>raw})};\nfunction bindMain(){if($('clear-data'))$('clear-data').onclick=()=>{if(confirm('Vymazať všetok pokrok a poznámky v tomto zariadení?')){state=blank();save();render()}};`);
 app=app.replace('<button class="text-button" id="edit-profile">','<button class="outline" id="clear-data">Vymazať moje údaje</button><button class="text-button" id="edit-profile">');
 app=app.replace('Pokrok patrí tomuto prehliadaču, nesynchronizuje sa medzi mobilom a počítačom.','Pokrok patrí tejto aplikácii v tvojom zariadení. Nesynchronizuje sa s webovou verziou.');
@@ -12,7 +13,7 @@ app=app.replace('<h2>Podklady jednotlivých lekcií</h2>','<p><a href="privacy.h
 let html=fs.readFileSync(path.join(src,'index.template.html'),'utf8');
 html=html.replace(/<section class="install-banner"[\s\S]*?<\/section>/,'');
 html=html.replace(/<link rel="(?:manifest|icon|apple-touch-icon)"[^>]*>/g,'');
-let css=fs.readFileSync(path.join(src,'dist/style.css'),'utf8').replace(/@import[^;]+;/g,'');
+let css=fs.readFileSync(path.join(src,'dist/style.css'),'utf8').replace(/@import\s+url\([^)]*\)\s*;/g,'');
 html=html.replace('<link rel="stylesheet" href="style.css">',()=>'<style>'+css+'</style>');
 html=html.replace('ukladajú v tomto prehliadači','ukladajú v tejto aplikácii');
 html=html.replace('<main id="main"></main>','<main id="main"><p>Spúšťam AgroKrok…</p></main>');
