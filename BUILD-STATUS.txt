@@ -1,17 +1,21 @@
-AgroKrok 2.0.1 — zostavené a overené 24. 10. 2026
+AgroKrok 2.0.2 — zostavené a overené 24. 10. 2026
 
+Odstránená konkrétna školská atribúcia a odkaz z časti Zdroje a kurz.
 178 tém, 1527 položiek úloh, 890 stupňov, 18 oblastí.
-Prešli obsahové kontroly, migrácia pôvodných záloh, zachovanie XP/poznámok, postupovanie, odpoveďami riadené opakovanie a zdieľanie.
-Prešiel test mobilného prehliadača Chromium vrátane čitateľnosti zásad, kontaktu bez placeholderov, vymazania pokroku aj interných záloh.
-GitHub Actions úspešne zostavil debug APK, release APK a release AAB.
-Overený beh: https://github.com/richardvanatka/agrokrok/actions/runs/40039410774
-Zdrojový commit: 48cb174c5e7913668a291eade39aa516a9db25c3
-Distribučná APK je podpísaná trvalým certifikátom (v1/v2/v3) zhodným s vydaním 2.0.0. Aktualizáciu 2.0 na 2.0.1 nainštaluj bez odinštalovania, aby sa zachoval pokrok.
-Verejné APK: downloads/AgroKrok.apk. Kontrolný súčet a certifikát: downloads/.
-Zásady súkromia dokončené, kontakt: richard.vanatka@gmail.com, vydavateľ Cowboysbase — Richard Vaňatka.
-Verejné zásady: https://agrokrok-farmarstvo.pracovn-prie-3256.chatgpt.site/android-privacy
-
-PRED PRECHODOM ZO STARÝCH TESTOVACÍCH 1.0.x EXPORTOVAŤ POKROK. Ich podpis nie je kompatibilný; po inštalácii importovať zálohu.
+Všetky lekcie, identifikátory, otázky, odpovede a moduly sú zhodné s vydaním 2.0.1.
+Prešli obsahové kontroly vrátane migrácie a zachovania XP/poznámok.
+Lokálne zostavenie Gradle 8.13 / AGP 8.13.0: assembleRelease bundleRelease — úspešné vrátane lintVitalRelease.
+APK aj AAB majú overený pôvodný podpis; APK: sk.agrokrok.app, versionCode 5, versionName 2.0.2.
+Hotové balíky obsahujú presné aktualizované offline súbory bez odkazu na konkrétnu školu.
+APK SHA-256: 60f1478fe9a7741dad09915cfeb11f6c26faf8027dd2a78c571f964745e0c2c8
+AAB SHA-256: 4467c788e94d995618cfa9395843bb3889bb0b29e203c29defc0e64236ea7bfa
+Verejné APK: downloads/AgroKrok.apk.
+Aktualizáciu z podpísaných 2.0 a 2.0.1 inštaluj bez odinštalovania, aby sa zachoval pokrok.
+Súkromný kľúč a heslá nie sú súčasťou repozitára.
+Zásady súkromia: richard.vanatka@gmail.com, Cowboysbase — Richard Vaňatka.
+Pred prechodom zo starých 1.0.x treba export pokroku; ich podpis je nekompatibilný.
 Neoverené: fyzické Android zariadenie tejto verzie a Google Play pre-launch report.
+Samostatný prehliadačový test bol overený pri 2.0.1; pri tejto textovej aktualizácii nebol zopakovaný.
 Cloudové účty, chat a sledovanie spolužiakov nie sú implementované.
-AAB z testovacieho workflow zatiaľ nemá upload podpis; nič nebolo odoslané do Google Play.
+AAB testovacieho workflow je nepodpísané; distribučné AAB bolo podpísané samostatne.
+Nič nebolo automaticky odoslané do Google Play.

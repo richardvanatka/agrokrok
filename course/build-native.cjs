@@ -8,4 +8,4 @@ const css=`
 html=html.replace('</style>',css+'</style>').replace('<!--COURSE_SCRIPT-->','<script>'+code.replace(/<\/script/gi,'<\\/script')+'</script>');
 html=html.replace(/Pracovný odborný základ[^<]*/g,'Celoročný tréning · odborné a všeobecné predmety');
 fs.writeFileSync(path.join(root,'app/src/main/assets/index.html'),html);fs.writeFileSync(path.join(root,'app/src/main/assets/native-program.js'),code);
-fs.writeFileSync(path.join(root,'store/content-audit.json'),JSON.stringify({topics:data.lessons.length,questions:data.lessons.reduce((n,l)=>n+l.questions.length,0),stages:data.lessons.length*5,subjects:data.modules.length,schoolPlanVerified:'2025, strana 29; podrobné osnovy len na nahliadnutie',generated:'2026-10-23'},null,2));console.log('Native year course prepared.');
+fs.writeFileSync(path.join(root,'store/content-audit.json'),JSON.stringify({topics:data.lessons.length,questions:data.lessons.reduce((n,l)=>n+l.questions.length,0),stages:data.lessons.length*5,subjects:data.modules.length,curriculumScope:'Nezávislá učebná pomôcka; rozsah overiť podľa vlastného učebného plánu',generated:'2026-10-23'},null,2));console.log('Native year course prepared.');
