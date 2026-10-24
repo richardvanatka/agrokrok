@@ -1,14 +1,14 @@
-AgroKrok 2.0.2 — zostavené a overené 24. 10. 2026
+AgroKrok 2.0.3 — zostavené a overené 24. 10. 2026
 
 Odstránená konkrétna školská atribúcia a odkaz z časti Zdroje a kurz.
 178 tém, 1527 položiek úloh, 890 stupňov, 18 oblastí.
 Všetky lekcie, identifikátory, otázky, odpovede a moduly sú zhodné s vydaním 2.0.1.
 Prešli obsahové kontroly vrátane migrácie a zachovania XP/poznámok.
 Lokálne zostavenie Gradle 8.13 / AGP 8.13.0: assembleRelease bundleRelease — úspešné vrátane lintVitalRelease.
-APK aj AAB majú overený pôvodný podpis; APK: sk.agrokrok.app, versionCode 5, versionName 2.0.2.
+APK aj AAB majú overený pôvodný podpis; APK: sk.agrokrok.app, versionCode 6, versionName 2.0.3.
 Hotové balíky obsahujú presné aktualizované offline súbory bez odkazu na konkrétnu školu.
-APK SHA-256: 60f1478fe9a7741dad09915cfeb11f6c26faf8027dd2a78c571f964745e0c2c8
-AAB SHA-256: 4467c788e94d995618cfa9395843bb3889bb0b29e203c29defc0e64236ea7bfa
+APK SHA-256: 7607047a5d127c83f08d49660cfb548c94b2a3b723e6668ea9c28d20433d6eb8
+AAB SHA-256: 4a8a87c2e79e60698e4d5b12d688fbe9a64176e33aa780d02f39b1f75429fd8f
 Verejné APK: downloads/AgroKrok.apk.
 Aktualizáciu z podpísaných 2.0 a 2.0.1 inštaluj bez odinštalovania, aby sa zachoval pokrok.
 Súkromný kľúč a heslá nie sú súčasťou repozitára.
@@ -19,3 +19,5 @@ Samostatný prehliadačový test bol overený pri 2.0.1; pri tejto textovej aktu
 Cloudové účty, chat a sledovanie spolužiakov nie sú implementované.
 AAB testovacieho workflow je nepodpísané; distribučné AAB bolo podpísané samostatne.
 Nič nebolo automaticky odoslané do Google Play.
+
+2.0.3: minSdk zvýšené z 23 na 24 pre automatickú ochranu Google Play. Android 7.0+. Učivo nezmenené oproti 2.0.2.

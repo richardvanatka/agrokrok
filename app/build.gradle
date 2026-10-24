@@ -3,7 +3,7 @@ android {
  namespace 'sk.agrokrok.app'
  buildFeatures { buildConfig true }
  compileSdk 36
- defaultConfig { applicationId 'sk.agrokrok.app'; minSdk 23; targetSdk 36; versionCode 5; versionName '2.0.2' }
+ defaultConfig { applicationId 'sk.agrokrok.app'; minSdk 24; targetSdk 36; versionCode 6; versionName '2.0.3' }
  signingConfigs {
   if (System.getenv('AGROKROK_KEYSTORE_PATH')) {
    upload {

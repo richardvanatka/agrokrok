@@ -1,4 +1,4 @@
-AgroKrok 2.0.2, sk.agrokrok.app, versionCode 5
+AgroKrok 2.0.3, sk.agrokrok.app, versionCode 6
 RSA 3072
 Certificate SHA-256: a5aa55c6f86c6ad2dafb60e17bed2d448902fc8088d3f88b5641644f1824e4d6
-APK SHA-256: 60f1478fe9a7741dad09915cfeb11f6c26faf8027dd2a78c571f964745e0c2c8
+APK SHA-256: 7607047a5d127c83f08d49660cfb548c94b2a3b723e6668ea9c28d20433d6eb8
